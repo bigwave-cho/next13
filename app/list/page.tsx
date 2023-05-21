@@ -20,6 +20,7 @@ export default async function List() {
           <h4>{post.title}</h4>
           <p>{post.content}</p>
           <DetailLink path={`detail/${post._id.toString()}`} />
+          <Link href={`/edit/${post._id.toString()}`}>수정</Link>
         </div>
       ))}
     </div>
