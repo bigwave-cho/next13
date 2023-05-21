@@ -15,3 +15,11 @@ build 시 o 는 static
 
 알아서 구분해주지만
 안 그럴 수 있으니 잘 확인
+
+## Github auth(OAuth)
+
+settings -> new app(OAuth) -> 개발시 localhost 넣어도 됨
+-> client id/ secrets 키 발급
+
+- npm install next-auth
+  https://www.npmjs.com/package/next-auth
