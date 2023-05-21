@@ -7,3 +7,11 @@
 ## api
 
 app/ api는 아직 unstable
+
+## static dynamic rendering
+
+build 시 o 는 static
+람다표시는 dynamic
+
+알아서 구분해주지만
+안 그럴 수 있으니 잘 확인

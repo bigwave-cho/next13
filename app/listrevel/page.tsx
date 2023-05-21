@@ -4,9 +4,16 @@ import { connectDB } from '@/util/database';
 import { ObjectId } from 'mongodb';
 import Link from 'next/link';
 
-// dynamic rendering 강제하기
-export const dynamic = 'force-dynamic';
-// 'force-static' 은 스태틱강제
+/*
+# 페이지를 캐싱
+아래처럼 revalidate를 설정
+
+# fetch 데이터를 캐싱
+or 아래 포스트 list를 가져오는 몽고디비 코드를
+api화 시켜서 fetch -> fetch자체 revalidate시키거나.
+ */
+
+export const revalidate = 60;
 
 export interface IPost {
   _id: ObjectId;
