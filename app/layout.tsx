@@ -4,6 +4,7 @@ import LoginBtn from '@/components/LoginBtn';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import LogoutBtn from '@/components/LogoutBtn';
+import { NextAuthProvider } from './providers';
 
 export default async function RootLayout({
   children,
@@ -27,7 +28,7 @@ export default async function RootLayout({
             <LoginBtn />
           )}
         </div>
-        {children}
+        <NextAuthProvider>{children}</NextAuthProvider>
       </body>
     </html>
   );

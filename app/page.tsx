@@ -5,7 +5,6 @@ export default async function Home() {
   const db = client.db('forum');
   let result = await db.collection('post').find().toArray();
   // db 입출력 코드는 서버컴포넌트에 why? : client compo는 유저들이 쉽게 접근 가능
-  console.log(result);
 
   // fetch 캐싱기능
   // await fetch('/URL', { cache: 'force-cache', next: { revalidate: 60 } });
