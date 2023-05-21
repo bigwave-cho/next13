@@ -1,3 +1,4 @@
+import DetailLink from '@/components/DetailLink';
 import { connectDB } from '@/util/database';
 import { ObjectId } from 'mongodb';
 import Link from 'next/link';
@@ -18,12 +19,7 @@ export default async function List() {
         <div key={post._id.toString()} className="list-item">
           <h4>{post.title}</h4>
           <p>{post.content}</p>
-          <Link
-            href={`detail/${post._id.toString()}`}
-            key={post._id.toString()}
-          >
-            링크
-          </Link>
+          <DetailLink path={`detail/${post._id.toString()}`} />
         </div>
       ))}
     </div>
