@@ -1,6 +1,8 @@
 import { connectDB } from '@/util/database';
-import { ObjectId } from 'mongodb';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../auth/[...nextauth]';
+import { ObjectId } from 'mongodb';
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,18 +10,12 @@ export default async function handler(
 ) {
   try {
     let db = (await connectDB).db('forum');
+    const result = await db
+      .collection('comment')
+      .find({ parent: new ObjectId(req.query.id as string) })
+      .toArray();
 
-    const result = await db.collection('post').updateOne(
-      { _id: new ObjectId(req.body._id) },
-      {
-        $set: {
-          title: req.body.title,
-          content: req.body.content,
-        },
-      }
-    );
-
-    res.redirect(302, '/list');
+    res.status(200).json(result);
   } catch (error) {
     res.status(400).json('서버에러');
   }

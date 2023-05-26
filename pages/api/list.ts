@@ -10,7 +10,6 @@ export default async function handler(
     const client = await connectDB;
     const db = client.db('forum');
     let result = await db.collection<IPost>('post').find().toArray();
-    console.log(result);
     return res.status(200).json(result);
   } else {
     return res.status(200).json('POST');

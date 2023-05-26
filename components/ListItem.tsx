@@ -11,8 +11,6 @@ import { useSession } from 'next-auth/react';
 export default function ListItem({ result }: { result: WithId<IPost>[] }) {
   const { data: session } = useSession();
 
-  console.log(session);
-
   return (
     <div>
       {result.map((post, i) => {
