@@ -13,7 +13,6 @@ export default async function RootLayout({
 }) {
   //server 컴포나 api에서 사용 가능 메서드
   const session = await getServerSession(authOptions);
-  console.log(session); // github에서 제공하는 정보 나옴
   return (
     <html lang="en">
       <body>

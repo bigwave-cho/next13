@@ -1,11 +1,11 @@
 import { connectDB } from '@/util/database';
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
-import NextAuth from 'next-auth';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcrypt';
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     GithubProvider({
       clientId: process.env.NEXT_PUBLIC_GH_CLIENT_ID ?? '',
@@ -17,7 +17,7 @@ export const authOptions = {
       name: 'credentials',
       credentials: {
         // 페이지에서 제공할 input 란 설정
-        email: { label: 'email', type: 'text' },
+        email: { label: 'email', type: 'text', placeholder: 'anon@any.com' },
         password: { label: 'password', type: 'password' },
       },
 
@@ -45,6 +45,12 @@ export const authOptions = {
       },
     }),
   ],
+
+  // 아래처럼 로그인 path 설정 가능
+  // pages: {
+  //   signIn: '/login',
+  // },
+
   //3. jwt 써놔야 잘됩니다 + jwt 만료일설정
   session: {
     strategy: 'jwt',
@@ -75,4 +81,4 @@ export const authOptions = {
   secret: process.env.NEXT_PUBLIC_JWT_KEY, // jwt 생성 암호 : 길고 복잡하게 만들기
   adapter: MongoDBAdapter(connectDB),
 };
-export default NextAuth(authOptions as any);
+export default NextAuth(authOptions);

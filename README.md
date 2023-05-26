@@ -49,3 +49,6 @@ session 방식으로 구현하고 싶을 때 DB adaptor를 사용
 
 ex) 한유저 (메일이 같은)가 깃헙으로도 가입하고 구글로도 가입
 users에는 하나, accounts에는 두 계정 도큐먼트 생성
+
+참고) customizing nextauth login page
+https://codevoweb.com/nextjs-use-custom-login-and-signup-pages-for-nextauth-js/
