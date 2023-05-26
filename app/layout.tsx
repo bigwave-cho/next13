@@ -5,7 +5,9 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import LogoutBtn from '@/components/LogoutBtn';
 import { NextAuthProvider } from './providers';
-
+// 최상위 layout은 동일 경로 error.tsx로는 처리 안됨.
+// global error 사용
+//https://nextjs.org/docs/app/api-reference/file-conventions/error#error
 export default async function RootLayout({
   children,
 }: {
