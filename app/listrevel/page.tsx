@@ -16,7 +16,7 @@ api화 시켜서 fetch -> fetch자체 revalidate시키거나.
 export const revalidate = 60;
 
 export interface IPost {
-  _id: ObjectId;
+  _id: ObjectId | string;
   title: string;
   content: string;
 }

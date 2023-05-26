@@ -8,12 +8,12 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 
-export default function ListItem({ result }: { result: WithId<IPost>[] }) {
+export default function ListItem({ result }: { result: any }) {
   const { data: session } = useSession();
 
   return (
     <div>
-      {result.map((post, i) => {
+      {result.map((post: any, i: any) => {
         return (
           <div id={`${i}`} key={post._id.toString()} className="list-item">
             <h4>{post.title}</h4>
