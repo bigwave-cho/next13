@@ -20,13 +20,13 @@ export async function middleware(req: NextRequest) {
 
   //로그인 X - > 리다이렉트
   //jwt 방식에서만 사용가능 (OAuth시 jwt생성 안하고 있어 null 받음.)
-  if (req.nextUrl.pathname.startsWith('/write')) {
-    const session = await getToken({ req: req });
-    console.log('세션', session);
-    if (session == null) {
-      return NextResponse.redirect(new URL('/api/auth/signin', req.url));
-    }
-  }
+  // if (req.nextUrl.pathname.startsWith('/write')) {
+  //   const session = await getToken({ req: req });
+  //   console.log('세션', session);
+  //   if (session == null) {
+  //     return NextResponse.redirect(new URL('/api/auth/signin', req.url));
+  //   }
+  // }
 
   // register시 방문여부
   if (req.nextUrl.pathname.startsWith('/register')) {
